@@ -65,10 +65,16 @@ def main():
     print(chars)
     images = {}
     for i in chars:
-        images.update({i:analyze('./characters/'+i)})
+        images.update({i:vectortopixel(analyze('./characters/'+i))})
     cname = input("Image Name: ")
-    
+    img = vectortopixel(analyze(cname))
 
+
+def vectortopixel(vec): 
+    fin = []
+    for a in vec:
+        for b in a:
+            fin.append(b)
 
 if __name__ == "__main__":
     main()
