@@ -37,6 +37,8 @@ def analyze(path,h=16,b=16):
     #img = Image.open("./characters/D.png").convert("RGBA")
     #img = img.convert('L')
     img = load_grayscale(path)
+    bbox = img.getbbox()
+    img = img.crop(bbox)
     img = img.resize((h,b))
     img.save("output.png")
     pixels = list(img.getdata())
