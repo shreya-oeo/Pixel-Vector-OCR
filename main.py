@@ -99,6 +99,7 @@ def flatten(vec):
     for a in vec:
         for b in a:
             fin.append(b)
+    return fin
 
 if __name__ == "__main__":
     main()
