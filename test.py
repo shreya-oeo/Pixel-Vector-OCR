@@ -2,11 +2,12 @@ from PIL import Image
 import copy
 
 #4x4 Grid Comparison
-
-empty = [[0,0,0,0],
-         [0,0,0,0],
-         [0,0,0,0],
-         [0,0,0,0]]
+def create_empty():
+    empty = [[0,0,0,0],
+            [0,0,0,0],
+            [0,0,0,0],
+            [0,0,0,0]]
+    return empty
 
 A = [[0,1,1,0],
      [1,0,0,1],
