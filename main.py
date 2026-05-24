@@ -70,6 +70,14 @@ def main():
     img = flatten(analyze(cname))
 
 
+def difference(a, b):
+    score = 0
+
+    for i in range(len(a)):
+        score += abs(a[i] - b[i])
+
+    return score
+
 def flatten(vec): 
     fin = []
     for a in vec:
