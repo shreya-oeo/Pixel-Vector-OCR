@@ -45,7 +45,7 @@ def load_grayscale(path):
 def analyze(h=8,b=8):
     #img = Image.open("./characters/D.png").convert("RGBA")
     #img = img.convert('L')
-    img = load_grayscale("./characters/D")
+    img = load_grayscale("./characters/C")
     img = img.resize((h,b))
     img.save("output.png")
     pixels = list(img.getdata())
