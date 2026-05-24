@@ -46,4 +46,4 @@ def analyze(h=8,b=8):
     print(grid)
     print(binaryvector)
 
-analyze(4,4)
+analyze(8,8)
