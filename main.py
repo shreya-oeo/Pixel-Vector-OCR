@@ -55,8 +55,8 @@ def analyze(path,h=8,b=8):
                 binaryvector[i][j] = 1
             
     ## pixel vector
-    print(grid)
-    print(binaryvector)
+    #print(grid)
+    return (binaryvector)
 
 
 def main():
@@ -66,8 +66,8 @@ def main():
     images = {}
     for i in chars:
         images.update({i:analyze('./characters/'+i)})
-    print(images)
-
+    cname = input("Image Name: ")
+    
 
 
 if __name__ == "__main__":
