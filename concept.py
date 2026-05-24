@@ -20,9 +20,30 @@ B = [[0,0,0,0],
      [0,0,0,0],
      [0,0,0,0]]
 
+def load_grayscale(path):
+    # Open image
+    img = Image.open(path)
+
+    # Handle PNG transparency properly
+    if img.mode in ("RGBA", "LA"):
+        # Convert to RGBA
+        img = img.convert("RGBA")
+
+        # White background
+        bg = Image.new("RGBA", img.size, (255, 255, 255, 255))
+
+        # Merge image with background
+        img = Image.alpha_composite(bg, img)
+
+    # Convert everything to grayscale
+    img = img.convert("L")
+
+    return img
+
+
 # h,b
 def analyze(h=8,b=8):
-    img = Image.open("./characters/B.jpg")
+    img = Image.open("./characters/D.png").convert("RGBA")
     img = img.convert('L')
     img = img.resize((h,b))
     img.save("output.png")
@@ -45,4 +66,4 @@ def analyze(h=8,b=8):
     print(grid)
     print(binaryvector)
 
-analyze(16,16)
+analyze(8,8)
