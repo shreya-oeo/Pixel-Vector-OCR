@@ -2,12 +2,14 @@ from PIL import Image
 import copy
 
 #4x4 Grid Comparison
-def create_empty():
-    empty = [[0,0,0,0],
-            [0,0,0,0],
-            [0,0,0,0],
-            [0,0,0,0]]
-    return empty
+def create_empty(i,j):
+    l = list()
+    for a in range(i):
+        m = list()
+        for b in range(j):
+            m.append(0)
+        l.append(m)
+    return l
 
 A = [[0,1,1,0],
      [1,0,0,1],
@@ -29,8 +31,8 @@ print(pixels)
 print("4x4 Grayscale Pixel Values:\n")
 
 # deep copying rows of empty
-grid = create_empty()
-binaryvector = create_empty()
+grid = create_empty(4,4)
+binaryvector = create_empty(4,4)
 
 for i in range(len(pixels)//4):
     for j in range(4):
