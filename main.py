@@ -68,6 +68,7 @@ def main():
         images.update({i:flatten(analyze('./characters/'+i))})
     cname = input("Image Name: ")
     img = flatten(analyze(cname))
+    predict(img,images)
 
 
 def difference(a, b):
