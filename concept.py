@@ -21,25 +21,29 @@ B = [[0,0,0,0],
      [0,0,0,0],
      [0,0,0,0]]
 
-img = Image.open("input.jpg")
-img = img.convert('L')
-img = img.resize((8,8))
-#img.save("output_4x4_grayscale.png")
-pixels = list(img.getdata())
-print(pixels)
+# h,b
+def analyze(h=8,b=8):
+    img = Image.open("input.jpg")
+    img = img.convert('L')
+    img = img.resize((h,b))
+    #img.save("output_4x4_grayscale.png")
+    pixels = list(img.getdata())
+    print(pixels)
 
-print("4x4 Grayscale Pixel Values:\n")
+    print("Grayscale Pixel Values:\n")
 
-# deep copying rows of empty
-grid = create_empty(8,8)
-binaryvector = create_empty(8,8)
+    # deep copying rows of empty
+    grid = create_empty(h,b)
+    binaryvector = create_empty(h,b)
 
-for i in range(len(pixels)//8):
-    for j in range(8):
-        grid[i][j] = pixels[i*8+j]
-        if (grid[i][j] <= 128):
-            binaryvector[i][j] = 1
-        
-## pixel vector
-print(grid)
-print(binaryvector)
+    for i in range(len(pixels)//h):
+        for j in range(h):
+            grid[i][j] = pixels[i*h+j]
+            if (grid[i][j] <= 128):
+                binaryvector[i][j] = 1
+            
+    ## pixel vector
+    print(grid)
+    print(binaryvector)
+
+analyze(4,4)
