@@ -23,6 +23,7 @@ img = img.convert('L')
 img = img.resize((4,4))
 img.save("output_4x4_grayscale.png")
 pixels = list(img.getdata())
+print(pixels)
 
 print("4x4 Grayscale Pixel Values:\n")
 
