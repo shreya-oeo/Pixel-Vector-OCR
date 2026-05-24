@@ -1,8 +1,42 @@
 from PIL import Image
+import os
 
-def analyze(h=8,b=8):
-    img = Image.open("input.jpg")
-    img = img.convert('L')
+#4x4 Grid Comparison
+def create_empty(i,j):
+    l = list()
+    for a in range(i):
+        m = list()
+        for b in range(j):
+            m.append(0)
+        l.append(m)
+    return l
+
+def load_grayscale(path):
+    # Open image
+    img = Image.open(path)
+
+    # Handle PNG transparency properly
+    if img.mode in ("RGBA", "LA"):
+        # Convert to RGBA
+        img = img.convert("RGBA")
+
+        # White background
+        bg = Image.new("RGBA", img.size, (255, 255, 255, 255))
+
+        # Merge image with background
+        img = Image.alpha_composite(bg, img)
+
+    # Convert everything to grayscale
+    img = img.convert("L")
+
+    return img
+
+
+# h,b
+def analyze(path,h=8,b=8):
+    #img = Image.open("./characters/D.png").convert("RGBA")
+    #img = img.convert('L')
+    img = load_grayscale(path)
     img = img.resize((h,b))
     img.save("output.png")
     pixels = list(img.getdata())
@@ -27,6 +61,13 @@ def analyze(h=8,b=8):
 
 def main():
     print("Hello from python-ocr-raw!")
+    chars = os.listdir('characters')
+    print(chars)
+    images = {}
+    for i in chars:
+        images.update({i:analyze('./characters/'+i)})
+    print(images)
+
 
 
 if __name__ == "__main__":
