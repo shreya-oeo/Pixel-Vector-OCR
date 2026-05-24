@@ -1,3 +1,4 @@
+from PIL import Image;
 
 
 #4x4 Grid Comparison
@@ -16,3 +17,4 @@ B = [[0,0,0,0],
      [0,0,0,0],
      [0,0,0,0],
      [0,0,0,0]]
+
