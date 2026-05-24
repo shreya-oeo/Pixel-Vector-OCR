@@ -40,9 +40,6 @@ for i in range(len(pixels)//4):
         if (grid[i][j] <= 128):
             binaryvector[i][j] = 1
         
-        
-        
-
 ## pixel vector
 print(grid)
 print(binaryvector)
