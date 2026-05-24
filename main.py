@@ -65,12 +65,12 @@ def main():
     print(chars)
     images = {}
     for i in chars:
-        images.update({i:vectortopixel(analyze('./characters/'+i))})
+        images.update({i:flatten(analyze('./characters/'+i))})
     cname = input("Image Name: ")
-    img = vectortopixel(analyze(cname))
+    img = flatten(analyze(cname))
 
 
-def vectortopixel(vec): 
+def flatten(vec): 
     fin = []
     for a in vec:
         for b in a:
