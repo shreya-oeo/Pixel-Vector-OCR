@@ -35,8 +35,8 @@ binaryvector = create_empty()
 for i in range(len(pixels)//4):
     for j in range(4):
         grid[i][j] = pixels[i*4+j]
-        #if (grid[i][j] <= 128):
-        #    binaryvector[i][j] = 1
+        if (grid[i][j] <= 128):
+            binaryvector[i][j] = 1
         
         
         
