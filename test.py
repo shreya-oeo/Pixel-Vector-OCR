@@ -1,5 +1,5 @@
 from PIL import Image
-
+import copy
 
 #4x4 Grid Comparison
 
@@ -27,14 +27,16 @@ print(pixels)
 
 print("4x4 Grayscale Pixel Values:\n")
 
-grid = empty.copy()
-binaryvector = empty.copy()
+# deep copying rows of empty
+grid = [row[:] for row in empty]
+binaryvector = [row[:] for row in empty]
 
 for i in range(len(pixels)//4):
     for j in range(4):
         grid[i][j] = pixels[i*4+j]
-        if (grid[i][j] <= 128):
-            binaryvector[i][j] = 1
+        #if (grid[i][j] <= 128):
+        #    binaryvector[i][j] = 1
+        
         
         
 
