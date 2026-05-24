@@ -27,5 +27,10 @@ print(pixels)
 
 print("4x4 Grayscale Pixel Values:\n")
 
-for i in range(0, 16, 4):
-    print(pixels[i:i+4])
+grid = empty.copy()
+
+for i in range(len(pixels)//4):
+    for j in range(4):
+        grid[i][j] = pixels[i*4+j]
+
+print(grid)
