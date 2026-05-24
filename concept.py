@@ -26,7 +26,7 @@ def analyze(h=8,b=8):
     img = Image.open("input.jpg")
     img = img.convert('L')
     img = img.resize((h,b))
-    #img.save("output_4x4_grayscale.png")
+    img.save("output.png")
     pixels = list(img.getdata())
     print(pixels)
 
