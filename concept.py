@@ -23,7 +23,7 @@ B = [[0,0,0,0],
 
 img = Image.open("input.jpg")
 img = img.convert('L')
-img = img.resize((4,4))
+img = img.resize((8,8))
 img.save("output_4x4_grayscale.png")
 pixels = list(img.getdata())
 print(pixels)
@@ -31,12 +31,12 @@ print(pixels)
 print("4x4 Grayscale Pixel Values:\n")
 
 # deep copying rows of empty
-grid = create_empty(4,4)
-binaryvector = create_empty(4,4)
+grid = create_empty(8,8)
+binaryvector = create_empty(8,8)
 
-for i in range(len(pixels)//4):
-    for j in range(4):
-        grid[i][j] = pixels[i*4+j]
+for i in range(len(pixels)//8):
+    for j in range(8):
+        grid[i][j] = pixels[i*8+j]
         if (grid[i][j] <= 128):
             binaryvector[i][j] = 1
         
