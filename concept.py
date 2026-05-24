@@ -1,5 +1,4 @@
 from PIL import Image
-import copy
 
 #4x4 Grid Comparison
 def create_empty(i,j):
@@ -23,7 +22,7 @@ B = [[0,0,0,0],
 
 # h,b
 def analyze(h=8,b=8):
-    img = Image.open("input.jpg")
+    img = Image.open("./characters/B.jpg")
     img = img.convert('L')
     img = img.resize((h,b))
     img.save("output.png")
