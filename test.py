@@ -29,8 +29,8 @@ print(pixels)
 print("4x4 Grayscale Pixel Values:\n")
 
 # deep copying rows of empty
-grid = [row[:] for row in empty]
-binaryvector = [row[:] for row in empty]
+grid = create_empty()
+binaryvector = create_empty()
 
 for i in range(len(pixels)//4):
     for j in range(4):
