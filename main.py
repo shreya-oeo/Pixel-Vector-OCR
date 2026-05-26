@@ -27,7 +27,7 @@ def load_grayscale(path):
 
 
 # h,b
-def analyze(path,h=16,b=16):
+def analyze(path, width=16, height=16):
     #img = Image.open("./characters/D.png").convert("RGBA")
     #img = img.convert('L')
     img = load_grayscale(path)
