@@ -70,7 +70,11 @@ def main():
         images.update({i:flatten(analyze('./characters/'+i))})
     cname = input("Image Name: ")
     img = flatten(analyze(cname))
-    predict(img,images)
+    
+    char, confidence = predict(img, images)
+
+    print(f"Predicted: {char}")
+    print(f"Confidence: {confidence:.2f}%")
 
 
 def difference(a, b):
