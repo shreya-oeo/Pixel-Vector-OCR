@@ -28,37 +28,36 @@ def load_grayscale(path):
 
 # h,b
 def analyze(path, width=16, height=16):
-    #img = Image.open("./characters/D.png").convert("RGBA")
-    #img = img.convert('L')
-    img = load_grayscale(path)
-    # threshold
-    bw = img.point(lambda p: 255 if p < 128 else 0)
 
-    bbox = bw.getbbox()
+    img = load_grayscale(path)
+
+    bw = img.point(lambda p: 0 if p < 128 else 255)
+
+    inv = ImageOps.invert(bw)
+
+    bbox = inv.getbbox()
 
     if bbox:
         img = img.crop(bbox)
-    img = img.resize((h,b))
-    img.save("output.png")
+
+    img = img.resize((width, height))
+
     pixels = list(img.getdata())
-    print(pixels)
 
-    print("Grayscale Pixel Values:\n")
+    grid = create_empty(height, width)
+    binaryvector = create_empty(height, width)
 
-    # deep copying rows of empty
-    grid = create_empty(h,b)
-    binaryvector = create_empty(h,b)
+    for y in range(height):
+        for x in range(width):
 
-    for i in range(b):
-        for j in range(h):
-            grid[i][j] = pixels[i*h+j]
-            if (grid[i][j] <= 128):
-                binaryvector[i][j] = 1
-            
-    ## pixel vector
-    #print(grid)
-    return (binaryvector)
+            pixel = pixels[y * width + x]
 
+            grid[y][x] = pixel
+
+            if pixel <= 128:
+                binaryvector[y][x] = 1
+
+    return binaryvector
 
 def main():
     print("Hello from python-ocr-raw!")
