@@ -8,7 +8,6 @@ def create_empty(rows, cols):
 def load_grayscale(path):
     # Open image
     img = Image.open(path)
-    img = img.filter(ImageFilter.FIND_EDGES)
 
     # Handle PNG transparency properly
     if img.mode in ("RGBA", "LA"):
@@ -33,6 +32,7 @@ def load_grayscale(path):
 def analyze(path, width=16, height=16):
 
     img = load_grayscale(path)
+    #img = img.filter(ImageFilter.FIND_EDGES)
 
     bw = img.point(lambda p: 0 if p < 128 else 255)
 
