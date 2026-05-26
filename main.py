@@ -73,7 +73,8 @@ def analyze(path, width=16, height=16):
     if bbox:
         img = img.crop(bbox)
 
-    img = img.resize((width, height))
+    #img = img.resize((width, height))
+    img = fit_to_canvas(img, 16)
 
     pixels = list(img.getdata())
 
