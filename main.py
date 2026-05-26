@@ -1,4 +1,4 @@
-from PIL import Image,ImageOps
+from PIL import Image,ImageOps,ImageFilter
 import os
 
 #4x4 Grid Comparison
@@ -8,6 +8,7 @@ def create_empty(rows, cols):
 def load_grayscale(path):
     # Open image
     img = Image.open(path)
+    
 
     # Handle PNG transparency properly
     if img.mode in ("RGBA", "LA"):
