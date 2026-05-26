@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image,ImageOps
 import os
 
 #4x4 Grid Comparison
