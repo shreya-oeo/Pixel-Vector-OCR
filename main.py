@@ -2,14 +2,8 @@ from PIL import Image
 import os
 
 #4x4 Grid Comparison
-def create_empty(i,j):
-    l = list()
-    for a in range(i):
-        m = list()
-        for b in range(j):
-            m.append(0)
-        l.append(m)
-    return l
+def create_empty(rows, cols):
+    return [[0 for _ in range(cols)] for _ in range(rows)]
 
 def load_grayscale(path):
     # Open image
