@@ -88,11 +88,19 @@ def predict(vector, patterns):
     for char in patterns:
         score = difference(vector, patterns[char])
 
-        print(char, score)
+        max_score = len(vector)
+
+        similarity = 1 - (score / max_score)
+
+        percent = similarity * 100
+
+        print(f"{char}: {percent:.2f}%")
 
         if score < best_score:
             best_score = score
             best_char = char
+
+    print("\nPrediction:", best_char)
 
     return best_char
 
