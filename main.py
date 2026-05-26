@@ -55,7 +55,7 @@ def analyze(path,h=16,b=16):
     grid = create_empty(h,b)
     binaryvector = create_empty(h,b)
 
-    for i in range(len(pixels)//h):
+    for i in range(b):
         for j in range(h):
             grid[i][j] = pixels[i*h+j]
             if (grid[i][j] <= 128):
