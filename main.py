@@ -88,7 +88,7 @@ def difference(a, b):
 def predict(vector, patterns):
     best_char = None
     best_score = float("inf")
-
+    best_percent = 0
     for char in patterns:
         score = difference(vector, patterns[char])
 
@@ -103,10 +103,11 @@ def predict(vector, patterns):
         if score < best_score:
             best_score = score
             best_char = char
+            best_percent = percent
 
     print("\nPrediction:", best_char)
 
-    return best_char, best_score
+    return best_char, best_percent
 
 def flatten(vec): 
     fin = []
