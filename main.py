@@ -20,8 +20,10 @@ def load_grayscale(path):
         # Merge image with background
         img = Image.alpha_composite(bg, img)
 
-    # Convert everything to grayscale
+    # convert to grayscale
     img = img.convert("L")
+
+    img = ImageOps.autocontrast(img) # auto contrast
 
     return img
 
