@@ -5,6 +5,36 @@ import os
 def create_empty(rows, cols):
     return [[0 for _ in range(cols)] for _ in range(rows)]
 
+def fit_to_canvas(img, size=16):
+    # Crop whitespace
+    bbox = img.getbbox()
+
+    if bbox:
+        img = img.crop(bbox)
+
+    # Original dimensions
+    w, h = img.size
+
+    # Scale proportionally
+    scale = min(size / w, size / h)
+
+    new_w = int(w * scale)
+    new_h = int(h * scale)
+
+    # Resize while preserving ratio
+    img = img.resize((new_w, new_h))
+
+    # Create white canvas
+    canvas = Image.new("L", (size, size), 255)
+
+    # Center image
+    x = (size - new_w) // 2
+    y = (size - new_h) // 2
+
+    canvas.paste(img, (x, y))
+
+    return canvas
+
 def load_grayscale(path):
     # Open image
     img = Image.open(path)
