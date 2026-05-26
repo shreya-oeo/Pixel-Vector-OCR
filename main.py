@@ -106,7 +106,7 @@ def predict(vector, patterns):
 
     print("\nPrediction:", best_char)
 
-    return best_char, best_percent
+    return best_char, best_score
 
 def flatten(vec): 
     fin = []
