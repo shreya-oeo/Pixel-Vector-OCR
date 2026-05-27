@@ -1,7 +1,7 @@
 from PIL import Image,ImageOps,ImageFilter
 import os
 
-#4x4 Grid Comparison
+#AxB Grid Comparison
 def create_empty(rows, cols):
     return [[0 for _ in range(cols)] for _ in range(rows)]
 
